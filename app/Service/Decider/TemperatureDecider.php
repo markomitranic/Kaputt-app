@@ -8,6 +8,7 @@ use Model\WeatherCondition;
 class TemperatureDecider implements Decider
 {
 
+    const INFERNO = ['t-shirt', 'shorts', 'sandals', 'light-sneakers', 'water', 'umbrella'];
     const EXTREMELY_HOT = ['t-shirt', 'shorts', 'sandals', 'light-sneakers', 'water'];
     const SUMMER = ['t-shirt', 'sleeved-shirt', 'shorts', 'sandals', 'light-sneakers'];
     const SPRING = ['t-shirt', 'sleeved-shirt', 'hoodie', 'light-pants', 'jeans', 'light-sneakers', 'sneakers'];
@@ -22,6 +23,10 @@ class TemperatureDecider implements Decider
      */
     public function decide(WeatherCondition $weatherCondition)
     {
+
+        if ($weatherCondition->getTemperature() >= 35) {
+            return self::INFERNO;
+        }
 
         if ($weatherCondition->getTemperature() >= 27) {
             return self::EXTREMELY_HOT;

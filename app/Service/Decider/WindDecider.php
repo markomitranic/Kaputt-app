@@ -7,7 +7,7 @@ use Model\WeatherCondition;
 
 class WindDecider implements Decider
 {
-    const ITEM_SLUGS = ['overcoat'];
+    const ITEM_SLUGS = ['overcoat', 'windbreaker'];
 
     /**
      * @param WeatherCondition $weatherCondition
@@ -20,6 +20,8 @@ class WindDecider implements Decider
 
             if ($weatherCondition->getTemperature() >= 13) {
                 unset($items[0]);
+            } else {
+                unset($items[1]);
             }
 
             return $items;

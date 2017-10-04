@@ -2,145 +2,145 @@
   {
     "name": "T-Shirt",
     "slug": "t-shirt",
-    "description": "",
+    "description": "Good to have for any occasion.",
     "icon": ""
   },
   {
     "name": "Sleeved Shirt",
     "slug": "sleeved-shirt",
-    "description": "Long sleeved shirt or kosulja isto se zovu",
+    "description": "Temperature will fall below 20c.",
     "icon": ""
   },
   {
     "name": "Hoodie",
     "slug": "hoodie",
-    "description": "Duks, debelo.",
+    "description": "Colder climate expected.",
     "icon": ""
   },
   {
     "name": "Sweater",
     "slug": "sweater",
-    "description": "Dzemper",
+    "description": "Chilly weather. Wool is the key.",
     "icon": ""
   },
   {
     "name": "Shorts",
     "slug": "shorts",
-    "description": "",
+    "description": "Temperature will stay above 22c.",
     "icon": ""
   },
   {
     "name": "Light Pants",
     "slug": "light-pants",
-    "description": "",
+    "description": "Temperature around 20c.",
     "icon": ""
   },
   {
     "name": "Jeans",
     "slug": "jeans",
-    "description": "",
+    "description": "Good to have for any occasion.",
     "icon": ""
   },
   {
     "name": "Sweat Pants",
     "slug": "sweat-pants",
-    "description": "",
+    "description": "A nice thing to have in hotel or for an evening run.",
     "icon": ""
   },
   {
     "name": "Snow Pants",
     "slug": "snow-pants",
-    "description": "",
+    "description": "Polar conditions ahead.",
     "icon": ""
   },
   {
     "name": "Sandals",
     "slug": "sandals",
-    "description": "Or flippers",
+    "description": "Or flippers. Temperature above 25c expected.",
     "icon": ""
   },
   {
     "name": "Light Sneakers",
     "slug": "light-sneakers",
-    "description": "Vans or whatever",
+    "description": "A general purpose for moderate weather.",
     "icon": ""
   },
   {
     "name": "Sneakers",
     "slug": "sneakers",
-    "description": "",
+    "description": "Tougher and warmer general purpose sneakers.",
     "icon": ""
   },
   {
     "name": "Shoes",
     "slug": "shoes",
-    "description": "",
+    "description": "Good idea if the weather is rainy or colder.",
     "icon": ""
   },
   {
     "name": "Winter Shoes",
     "slug": "winter-shoes",
-    "description": "",
+    "description": "Serious protection in cold weather.",
     "icon": ""
   },
   {
     "name": "Windbreaker",
     "slug": "windbreaker",
-    "description": "",
+    "description": "Warm but really windy weather.",
     "icon": ""
   },
   {
     "name": "Vest",
     "slug": "vest",
-    "description": "",
+    "description": "Good accessory for travelers in colder days.",
     "icon": ""
   },
   {
     "name": "Jacket",
     "slug": "jacket",
-    "description": "",
+    "description": "Don't catch that cold!",
     "icon": ""
   },
   {
     "name": "Overcoat",
     "slug": "overcoat",
-    "description": "",
+    "description": "A classy decision for cold and windy weather.",
     "icon": ""
   },
   {
     "name": "Heavy Jacket",
     "slug": "heavy-jacket",
-    "description": "",
+    "description": "Winter ahead.",
     "icon": ""
   },
   {
     "name": "Cap",
     "slug": "cap",
-    "description": "",
+    "description": "Don't catch that cold!",
     "icon": ""
   },
   {
     "name": "Winter Hat",
     "slug": "winter-hat",
-    "description": "",
+    "description": "Winter is coming.",
     "icon": ""
   },
   {
     "name": "Scarf",
     "slug": "scarf",
-    "description": "",
+    "description": "Protect your health. Heavy wind, winter or snow expected.",
     "icon": ""
   },
   {
     "name": "Umbrella",
     "slug": "umbrella",
-    "description": "",
+    "description": "Heavy rain or infernal sun expected.",
     "icon": ""
   },
   {
     "name": "Water",
     "slug": "water",
-    "description": "",
+    "description": "It's too warm.",
     "icon": ""
   }
 ]
