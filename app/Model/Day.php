@@ -23,6 +23,11 @@ class Day
     private $temperature;
 
     /**
+     * @var float
+     */
+    private $windSpeed;
+
+    /**
      * @var string
      */
     private $condition;
@@ -88,6 +93,24 @@ class Day
     public function setTemperature($temperature)
     {
         $this->temperature = $temperature;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getWindSpeed()
+    {
+        return $this->windSpeed;
+    }
+
+    /**
+     * @param float $windSpeed
+     * @return $this
+     */
+    public function setWindSpeed($windSpeed)
+    {
+        $this->windSpeed = $windSpeed;
         return $this;
     }
 

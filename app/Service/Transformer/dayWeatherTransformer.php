@@ -19,20 +19,20 @@ class dayWeatherTransformer
         $day->setDate(new DateTimeImmutable($dayForecast->date));
         $day->setDayName($day->getDate()->format('d M'));
         $day->setTemperature((float) $dayForecast->day->avgtemp_c);
+        $day->setWindSpeed((float) $dayForecast->day->maxwind_kph);
         $day->setCondition($dayForecast->day->condition->text);
-        $day->setConditionCode($this->convertApiConditionCode($dayForecast->day->condition->code));
+        $day->setConditionCode($this->getConditionCodeTransformer()->transform($dayForecast->day->condition->code));
         $day->setIcon($dayForecast->day->condition->text);
 
         return $day;
     }
 
     /**
-     * @param int $apiCode
-     * @return int
+     * @return conditionCodeTransformer
      */
-    private function convertApiConditionCode($apiCode)
+    private function getConditionCodeTransformer()
     {
-        return 1;
+        return new conditionCodeTransformer();
     }
 
 }

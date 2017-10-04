@@ -16,6 +16,11 @@ class WeatherCondition
     private $conditionCode;
 
     /**
+     * @var float
+     */
+    private $windSpeed;
+
+    /**
      * @return float
      */
     public function getTemperature()
@@ -48,6 +53,24 @@ class WeatherCondition
     public function setConditionCode($conditionCode)
     {
         $this->conditionCode = $conditionCode;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getWindSpeed()
+    {
+        return $this->windSpeed;
+    }
+
+    /**
+     * @param float $windSpeed
+     * @return $this
+     */
+    public function setWindSpeed($windSpeed)
+    {
+        $this->windSpeed = $windSpeed;
         return $this;
     }
 

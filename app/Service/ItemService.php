@@ -5,7 +5,11 @@ namespace Service;
 use Model\Day;
 use Model\WeatherCondition;
 use Service\Decider\Decider;
+use Service\Decider\RainDecider;
+use Service\Decider\SnowDecider;
 use Service\Decider\TemperatureDecider;
+use Service\Decider\WindDecider;
+use Service\Transformer\conditionCodeTransformer;
 
 class ItemService
 {
@@ -21,6 +25,7 @@ class ItemService
         $condition = new WeatherCondition();
         $condition->setTemperature($day->getTemperature());
         $condition->setConditionCode($day->getConditionCode());
+        $condition->setWindSpeed($day->getWindSpeed());
 
         foreach ($this->getDeciders() as $decider) {
             $items = array_unique(array_merge($items, $decider->decide($condition)), SORT_STRING);
@@ -35,7 +40,10 @@ class ItemService
     private function getDeciders()
     {
         return [
-            new TemperatureDecider()
+            new TemperatureDecider(),
+            new WindDecider(),
+            new RainDecider(),
+            new SnowDecider()
         ];
     }
 
