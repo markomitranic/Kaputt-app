@@ -22,6 +22,7 @@ class apixuApiService
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 
         $json_output=curl_exec($ch);
+
         return json_decode($json_output);
     }
 
