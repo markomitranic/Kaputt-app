@@ -6,6 +6,7 @@ include(dirname(__DIR__) . '/Kernel.php');
 
 use Exception;
 use Service\Transformer\forecastRequestTransformer;
+use Service\Transformer\forecastResponseTransformer;
 use Service\weatherService;
 
 class forecastController
@@ -23,9 +24,9 @@ class forecastController
         }
 
         $results = $this->getWeatherService()->getForecastResults($params);
+        $response = $this->getForecastResponseTransformer()->transform($results);
 
-//        $response['posts'] = $this->getInstaPostTransformer()->postsToArray($response['posts']);
-        return json_encode($results);
+        return json_encode($response);
     }
 
 
@@ -58,6 +59,14 @@ class forecastController
     }
 
     /**
+     * @return forecastResponseTransformer
+     */
+    private function getForecastResponseTransformer()
+    {
+        return new forecastResponseTransformer();
+    }
+
+    /**
      * @param Exception $e
      * @return array
      */
@@ -71,64 +80,7 @@ class forecastController
 
 }
 
-//$controller = new forecastController();
-//echo $controller->render();
-
-
-echo '{
-	"location" : {
-		"name": "Valetta",
-		"country": "Malta",
-		"latitude": 35.9,
-		"longtitude": 14.51
-	},
-	"weather" : [
-		{
-			"date": "2017-10-03",
-			"day": "Monday",
-			"temperature" : 22,
-			"condition": "Patchy light rain with thunder",
-			"icon": "http://kaputt.com/assets/weather/sun-cloud.png"
-		},
-		{
-			"date": "2017-10-04",
-			"day": "Tuesday",
-			"temperature" : 24,
-			"condition": "Patchy light rain with thunder",
-			"icon": "http://kaputt.com/assets/weather/rain.png"
-		},
-		{
-			"date": "2017-10-05",
-			"day": "Wednsday",
-			"temperature" : 20,
-			"condition": "Patchy light rain with thunder",
-			"icon": "http://kaputt.com/assets/weather/sunny.png"
-		}
-	],
-	"clothes" : [
-		{
-			"name": "Coat",
-			"description": "Temperature will drop below 20c",
-			"icon": "http://kaputt.com/assets/clothes/sweater.png"
-		},
-		{
-			"name": "T-shirt",
-			"description": "Bla bla bla",
-			"icon": "http://kaputt.com/assets/clothes/sweater.png"
-		},
-		{
-			"name": "Jeans",
-			"description": "or pants, trousers...",
-			"icon": "http://kaputt.com/assets/clothes/sweater.png"
-		},
-		{
-			"name": "Umbrella",
-			"description": "It will be raining.",
-			"icon": "http://kaputt.com/assets/clothes/sweater.png"
-		}
-	]
-}';
-
-
+$controller = new forecastController();
+echo $controller->render();
 
 ?>

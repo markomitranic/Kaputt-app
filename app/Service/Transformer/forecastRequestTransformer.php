@@ -10,7 +10,7 @@ class forecastRequestTransformer
     public function hydrate ($request)
     {
         if (null == $request['city']) {
-            throw new Exception('The city field may not be empty', 400);
+            throw new Exception('The city field may not be empty.', 400);
         } else {
             $city = $request['city'];
             $city = preg_replace('[,\s]', ',', $city);
@@ -19,17 +19,25 @@ class forecastRequestTransformer
         }
 
         if (null == $request['start_date']) {
-            $start_date = new DateTimeImmutable('2017-10-03');
+            throw new Exception('The start date field may not be empty.', 400);
         } else {
             $this->matchesISO8061($request['start_date']);
             $start_date = new DateTimeImmutable($request['start_date']);
+
+            if ($start_date < new DateTimeImmutable()) {
+                throw new Exception('The start date field may not be in the past.', 400);
+            }
         }
 
         if (null == $request['end_date']) {
-            $end_date = $start_date->add(new \DateInterval('PT48H'));
+            throw new Exception('The end date field may not be empty.', 400);
         } else {
             $this->matchesISO8061($request['end_date']);
             $end_date = new DateTimeImmutable($request['end_date']);
+
+            if ($end_date < $start_date) {
+                throw new Exception('The end date field may not be in the past.', 400);
+            }
         }
 
         return [

@@ -1,0 +1,146 @@
+[
+  {
+    "name": "T-Shirt",
+    "slug": "t-shirt",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Sleeved Shirt",
+    "slug": "sleeved-shirt",
+    "description": "Long sleeved shirt or kosulja isto se zovu",
+    "icon": ""
+  },
+  {
+    "name": "Hoodie",
+    "slug": "hoodie",
+    "description": "Duks, debelo.",
+    "icon": ""
+  },
+  {
+    "name": "Sweater",
+    "slug": "sweater",
+    "description": "Dzemper",
+    "icon": ""
+  },
+  {
+    "name": "Shorts",
+    "slug": "shorts",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Light Pants",
+    "slug": "light-pants",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Jeans",
+    "slug": "jeans",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Sweat Pants",
+    "slug": "sweat-pants",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Snow Pants",
+    "slug": "snow-pants",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Sandals",
+    "slug": "sandals",
+    "description": "Or flippers",
+    "icon": ""
+  },
+  {
+    "name": "Light Sneakers",
+    "slug": "light-sneakers",
+    "description": "Vans or whatever",
+    "icon": ""
+  },
+  {
+    "name": "Sneakers",
+    "slug": "sneakers",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Shoes",
+    "slug": "shoes",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Winter Shoes",
+    "slug": "winter-shoes",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Windbreaker",
+    "slug": "windbreaker",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Vest",
+    "slug": "vest",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Jacket",
+    "slug": "jacket",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Overcoat",
+    "slug": "overcoat",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Heavy Jacket",
+    "slug": "heavy-jacket",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Cap",
+    "slug": "cap",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Winter Hat",
+    "slug": "winter-hat",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Scarf",
+    "slug": "scarf",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Umbrella",
+    "slug": "umbrella",
+    "description": "",
+    "icon": ""
+  },
+  {
+    "name": "Water",
+    "slug": "water",
+    "description": "",
+    "icon": ""
+  }
+]
