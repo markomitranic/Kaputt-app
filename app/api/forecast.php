@@ -1,5 +1,5 @@
 <?php
-namespace API;
+namespace api;
 header('Content-Type: application/json');
 
 include(dirname(__DIR__) . '/Kernel.php');
@@ -8,7 +8,7 @@ use Exception;
 use Service\Transformer\forecastRequestTransformer;
 use Service\weatherService;
 
-class getController
+class forecastController
 {
 
     /**
@@ -24,10 +24,8 @@ class getController
 
         $results = $this->getWeatherService()->getForecastResults($params);
 
-        die(var_dump($results));
-
 //        $response['posts'] = $this->getInstaPostTransformer()->postsToArray($response['posts']);
-        return json_encode($response);
+        return json_encode($results);
     }
 
 
@@ -73,7 +71,7 @@ class getController
 
 }
 
-$controller = new getController();
+$controller = new forecastController();
 echo $controller->render();
 
 ?>

@@ -12,10 +12,10 @@ class forecastRequestTransformer
         if (null == $request['city']) {
             throw new Exception('The city field may not be empty', 400);
         } else {
-            if (preg_match('[\s]', $request['city'])) {
-                throw new Exception('City query is not allowed to have spaces or special characters.', 400);
-            }
             $city = $request['city'];
+            $city = preg_replace('[,\s]', ',', $city);
+            $city = preg_replace('[\s]', '-', $city);
+            $city = strtolower($city);
         }
 
         if (null == $request['start_date']) {
