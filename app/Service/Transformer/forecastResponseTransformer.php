@@ -22,7 +22,7 @@ class forecastResponseTransformer
             'country' => $forecast['location']->country,
             'latitude' => $forecast['location']->lat,
             'longtitude' => $forecast['location']->lon,
-            'current_condition' => ($forecast['weather'][0]) ? $forecast['weather'][0]->getConditionCode() : 0
+            'current_condition' => (reset($forecast['weather'])) ? reset($forecast['weather'])->getConditionCode() : 0
         ];
 
         $response['weather'] = $this->getWeather($forecast['weather']);

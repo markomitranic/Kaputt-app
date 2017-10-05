@@ -2,6 +2,7 @@
 
 namespace Service;
 
+use DateTimeImmutable;
 use Model\Day;
 use Service\Transformer\dayWeatherTransformer;
 
@@ -10,10 +11,15 @@ class WeatherService
 
     public function getForecastResults($params)
     {
-        $daysDifference = $params['start_date']->diff($params['end_date'], true)->days;
-        $forecast = $this->getApixuApiService()->getWeatherForecast($params['city'], $daysDifference);
+        $today = new DateTimeImmutable();
+        $today = $today->setTime(0, 0, 0);
+
+        $daysDifference = $today->diff($params['end_date'], true)->days;
+
+        $forecast = $this->getApixuApiService()->getWeatherForecast($params['city'], $daysDifference + 1);
 
         $days = $this->getWeatherFromForecast($forecast);
+        $days = $this->sliceDaysInterval($days, $params['start_date'], $params['end_date']);
         $items = [];
 
         foreach ($days as $day) {
@@ -27,6 +33,26 @@ class WeatherService
             'weather' => $days,
             'items' => $items
         ];
+    }
+
+    /**
+     * @param Day[] $days
+     * @param DateTimeImmutable $start
+     * @param DateTimeImmutable $end
+     * @return array
+     */
+    public function sliceDaysInterval($days, DateTimeImmutable $start, DateTimeImmutable $end)
+    {
+        foreach ($days as $key => $day) {
+            if ($day->getDate() < $start) {
+                unset($days[$key]);
+            }
+            if ($day->getDate() > $end) {
+                unset($days[$key]);
+            }
+        }
+
+        return array_values($days);
     }
 
     public function getAutocompleteResults($string)
