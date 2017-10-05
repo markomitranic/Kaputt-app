@@ -7,7 +7,7 @@ include(dirname(__DIR__) . '/Kernel.php');
 use Exception;
 use Service\Transformer\forecastRequestTransformer;
 use Service\Transformer\forecastResponseTransformer;
-use Service\weatherService;
+use Service\WeatherService;
 
 class forecastController
 {
@@ -43,11 +43,11 @@ class forecastController
     }
 
     /**
-     * @return weatherService
+     * @return WeatherService
      */
     private function getWeatherService()
     {
-        return new weatherService();
+        return new WeatherService();
     }
 
     /**

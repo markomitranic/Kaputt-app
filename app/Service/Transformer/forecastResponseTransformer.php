@@ -43,7 +43,7 @@ class forecastResponseTransformer
             $weather[] = [
                 'date' => $day->getDate()->format('Y-m-d'),
                 'day' => $day->getDayName(),
-                'temperature' => $day->getTemperature(),
+                'temperature' => $day->getTemperature().'°C',
                 'condition' => $day->getCondition(),
                 'icon' => $day->getIcon()
             ];

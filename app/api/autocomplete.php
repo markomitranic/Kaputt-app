@@ -6,7 +6,7 @@ include(dirname(__DIR__) . '/Kernel.php');
 
 use Exception;
 use Service\Transformer\forecastRequestTransformer;
-use Service\weatherService;
+use Service\WeatherService;
 
 class autocompleteController
 {
@@ -43,11 +43,11 @@ class autocompleteController
     }
 
     /**
-     * @return weatherService
+     * @return WeatherService
      */
     private function getWeatherService()
     {
-        return new weatherService();
+        return new WeatherService();
     }
 
     /**

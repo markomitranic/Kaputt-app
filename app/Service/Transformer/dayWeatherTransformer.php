@@ -22,7 +22,7 @@ class dayWeatherTransformer
         $day->setWindSpeed((float) $dayForecast->day->maxwind_kph);
         $day->setCondition($dayForecast->day->condition->text);
         $day->setConditionCode($this->getConditionCodeTransformer()->transform($dayForecast->day->condition->code));
-        $day->setIcon($dayForecast->day->condition->text);
+        $day->setIcon($dayForecast->day->condition->icon);
 
         return $day;
     }

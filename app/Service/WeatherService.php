@@ -5,7 +5,7 @@ namespace Service;
 use Model\Day;
 use Service\Transformer\dayWeatherTransformer;
 
-class weatherService
+class WeatherService
 {
 
     public function getForecastResults($params)
