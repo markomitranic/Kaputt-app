@@ -64,7 +64,7 @@ class forecastResponseTransformer
             $clothes[] = [
                 'name' => $item->getName(),
                 'description' => $item->getDescription(),
-                'icon' => $item->getIcon().'http://cdn.apixu.com/weather/64x64/day/113.png'
+                'icon' => $item->getIcon()
             ];
         }
 
