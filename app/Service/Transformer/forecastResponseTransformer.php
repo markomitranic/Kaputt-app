@@ -45,7 +45,7 @@ class forecastResponseTransformer
                 'day' => $day->getDayName(),
                 'temperature' => $day->getTemperature().'°C',
                 'condition' => $day->getCondition(),
-                'icon' => $day->getIcon()
+                'icon' => 'https:'.$day->getIcon()
             ];
         }
 

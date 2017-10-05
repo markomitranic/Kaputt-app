@@ -164,7 +164,7 @@ class Day
      */
     public function setIcon($iconUrl)
     {
-        $this->icon = 'https://'.$iconUrl;
+        $this->icon = $iconUrl;
         return $this;
     }
 
