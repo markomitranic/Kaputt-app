@@ -64,6 +64,8 @@ class autocompleteController
      */
     private function handleError(Exception $e)
     {
+        http_response_code($e->getCode());
+        
         return [
             'error_code' => $e->getCode(),
             'error_message' => $e->getMessage()
