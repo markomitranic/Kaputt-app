@@ -9,6 +9,9 @@ class forecastRequestTransformer
 
     public function hydrate ($request)
     {
+        $todayDate = new DateTimeImmutable();
+        $todayDate = $todayDate->setTime(0, 0, 0);
+
         if (null == $request['city']) {
             throw new Exception('The city field may not be empty.', 400);
         } else {
@@ -24,7 +27,7 @@ class forecastRequestTransformer
             $this->matchesISO8061($request['start_date']);
             $start_date = new DateTimeImmutable($request['start_date']);
 
-            if ($start_date < new DateTimeImmutable()) {
+            if ($start_date < $todayDate) {
                 throw new Exception('The start date field may not be in the past.', 400);
             }
         }
