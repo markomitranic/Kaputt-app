@@ -19,6 +19,12 @@ class forecastController
     {
         try {
             $params = $this->getRequestParameters();
+
+            if (preg_match('/\Catena\b/i', $params['city'])) {
+                $params['city'] = 'sliema,malta';
+                $catena = true;
+            }
+
         } catch (Exception $e) {
             return json_encode($this->handleError($e));
         }
@@ -26,9 +32,12 @@ class forecastController
         $results = $this->getWeatherService()->getForecastResults($params);
         $response = $this->getForecastResponseTransformer()->transform($results);
 
+        if (isset($catena) && true == $catena) {
+            $response['location']['current_condition'] = 3;
+        }
+
         return json_encode($response);
     }
-
 
     private function getRequestParameters() {
         $request = [
