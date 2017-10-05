@@ -93,7 +93,7 @@ class Item
      */
     public function setIcon($icon)
     {
-        $this->icon = '/assets/'.$icon;
+        $this->icon = 'http://kaputt.homullus.com/assets/'.$icon;
         return $this;
     }
 }
