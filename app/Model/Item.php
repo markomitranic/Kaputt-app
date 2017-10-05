@@ -93,7 +93,7 @@ class Item
      */
     public function setIcon($icon)
     {
-        $this->icon = $icon;
+        $this->icon = '/assets/'.$icon;
         return $this;
     }
 }
