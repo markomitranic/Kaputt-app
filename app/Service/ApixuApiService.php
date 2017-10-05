@@ -3,7 +3,7 @@
 namespace Service;
 
 
-class apixuApiService
+class ApixuApiService
 {
 
     /**

@@ -68,11 +68,11 @@ class WeatherService
     }
 
     /**
-     * @return apixuApiService
+     * @return ApixuApiService
      */
     private function getApixuApiService()
     {
-        return new apixuApiService();
+        return new ApixuApiService();
     }
 
     /**
