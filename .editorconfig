@@ -1,0 +1,34 @@
+; top-most EditorConfig file
+root = true
+
+; Unix-style newlines
+[*]
+end_of_line = LF
+charset = utf-8
+
+; Keeping files tidy
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+; Default indenting options
+indent_style = space
+indent_size = 4
+
+; Override configuration below, per-extension
+
+[*.php]
+
+[*.twig]
+
+[*.feature]
+
+[*.{yml,yml.dist}]
+
+[*.{xml,xml.dist}]
+
+[*.{js,scss,css,svg,html}]
+
+[*.{md,rst}]
+trim_trailing_whitespace = false
+
+[composer.*]
