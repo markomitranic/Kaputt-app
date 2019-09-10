@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+
+  nginx:
+    volumes:
+        - macura:/app/macura:ro
+
+  php:
+    volumes:
+        - macura:/app/macura:delegated
+
+volumes:
+    macura:
+        driver: local
+        driver_opts:
+            type: none
+            device: ${PWD}/../app/macura
+            o: bind

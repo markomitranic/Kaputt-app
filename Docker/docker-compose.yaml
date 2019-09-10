@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+
+  nginx:
+    container_name: kaputt_nginx
+    build:
+        context: ../
+        dockerfile: ./Docker/nginx/Dockerfile
+        args:
+            - SSL_CERTS_PATH=${SSL_CERTS_PATH}
+    restart: always
+    ports:
+        - ${LISTEN_PORT}:443
+    networks:
+        - kaputt
+
+  php:
+    container_name: kaputt_php
+    build:
+        context: ../
+        dockerfile: ./Docker/php/Dockerfile
+        target: ${ENV}
+        args:
+            - XDEBUG_ACTIVE=${XDEBUG_ACTIVE}
+    environment:
+        APP_ENV: ${ENV}
+        APP_DEBUG: ${SYMFONY_APP_DEBUG}
+    entrypoint: /app/entrypoint.sh
+    restart: always
+    networks:
+        - kaputt
+
+networks:
+    kaputt:
+        driver: bridge
