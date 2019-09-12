@@ -4,7 +4,7 @@ ENV NPM_CONFIG_LOGLEVEL info
 USER root
 WORKDIR /app
 
-RUN npm install -g yarn
+RUN npm install -g yarn @vue/cli
 
 COPY entrypoint.sh /app/entrypoint.sh
 RUN ["chmod", "+x", "/app/entrypoint.sh"]

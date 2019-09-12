@@ -3,7 +3,7 @@ version: "3.7"
 services:
 
     nginx:
-        command: [nginx-debug, '-g', 'daemon off;']
+        # command: [nginx-debug, '-g', 'daemon off;']
         volumes:
             - ./nginx/conf/kaputt.conf:/etc/nginx/conf.d/kaputt.conf:ro
             - macura:/app/macura:ro
