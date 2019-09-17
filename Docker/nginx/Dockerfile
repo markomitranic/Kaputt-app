@@ -10,5 +10,5 @@ COPY ./Docker/nginx/conf/tls.conf /etc/nginx/conf.d/tls.conf
 COPY ./Docker/nginx/conf/kaputt.conf /etc/nginx/conf.d/kaputt.conf
 COPY ./Docker/nginx/conf/macura.conf /etc/nginx/conf.d/macura.conf
 
-ADD ./app/ /app/
+COPY ./app/ /app/
 WORKDIR /app/

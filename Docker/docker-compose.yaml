@@ -26,6 +26,7 @@ services:
         environment:
             APP_ENV: ${ENV}
             APP_DEBUG: ${SYMFONY_APP_DEBUG}
+            DARKSKY_API_KEY: ${DARKSKY_API_KEY}
         entrypoint: /app/entrypoint.sh
         restart: always
         networks:
@@ -34,7 +35,9 @@ services:
     node:
         container_name: kaputt_node
         build:
-            context: ./node
+            context: ../
+            dockerfile: ./Docker/node/Dockerfile
+            target: ${ENV}
         entrypoint: /app/entrypoint.sh
         environment:
             NODE_ENV: ${ENV}
