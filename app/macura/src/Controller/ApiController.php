@@ -2,7 +2,8 @@
 
 namespace App\Controller;
 
-use App\Service\DarkSky\WeatherProvider;
+use App\Service\ClothesForecast\ClothesForecastService;
+use App\Service\ClothesForecast\Request\RequestDTOTransformer;
 use App\Service\Transformer\DateRangeTransformer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,22 +12,25 @@ class ApiController
 {
 
     /**
-     * @param WeatherProvider $weather
+     * @param RequestDTOTransformer $requestTransformer
+     * @param ClothesForecastService $clothesForecastService
      * @param Request $request
      * @return JsonResponse
      * @throws \Exception
      */
     public function forecast(
-        WeatherProvider $weather,
+        RequestDTOTransformer $requestTransformer,
+        ClothesForecastService $clothesForecastService,
         Request $request
     ): JsonResponse {
+        $requestDto = $requestTransformer->transform($request);
 
-        if (!($dateRange = $request->query->get('dateRange'))) {
-            throw new \Exception('You must provide a date range. Format: ' . DateRangeTransformer::DATE_RANGE_FORMAT);
-        }
+        $clothesForecast = $clothesForecastService->getClothesForecast(
+            $requestDto->getLatitude(),
+            $requestDto->getLongitude(),
+            ...$requestDto->getDateRange()
+        );
 
-        $dates = DateRangeTransformer::transform($dateRange);
-
-        return new JsonResponse($weather->getWeather(44,20, ...$dates));
+        return new JsonResponse($clothesForecast);
     }
 }

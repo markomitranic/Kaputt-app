@@ -30,3 +30,20 @@ services:
         arguments:
             $apiKey: '%env(DARKSKY_API_KEY)%'
             $cacheAdapter: '@app.cache.weather'
+
+    App\Service\Clothes\ClothesProvider:
+        arguments:
+            $adapter: '@App\Service\Clothes\Adapter\JsonAdapter'
+
+    App\Service\Clothes\Adapter\JsonAdapter:
+        arguments:
+            $cacheAdapter: '@app.cache.clothes'
+
+    App\Service\ClothesForecast\ForecastResolver:
+        calls:
+            - { method: addDecorator, arguments: ['@App\Service\ClothesForecast\Decorator\Basic'] }
+            - { method: addDecorator, arguments: ['@App\Service\ClothesForecast\Decorator\Temperature'] }
+            - { method: addDecorator, arguments: ['@App\Service\ClothesForecast\Decorator\Rain'] }
+            - { method: addDecorator, arguments: ['@App\Service\ClothesForecast\Decorator\Snow'] }
+            - { method: addDecorator, arguments: ['@App\Service\ClothesForecast\Decorator\Wind'] }
+            - { method: addDecorator, arguments: ['@App\Service\ClothesForecast\Decorator\UV'] }

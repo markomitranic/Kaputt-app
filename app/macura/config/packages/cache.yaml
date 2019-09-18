@@ -6,3 +6,6 @@ framework:
             app.cache.weather:
                 adapter: cache.app
                 default_lifetime: 43200 # 12 hours
+            app.cache.clothes:
+                adapter: cache.app
+                default_lifetime: 2592000 # 30 days

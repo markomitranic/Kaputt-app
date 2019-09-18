@@ -21,7 +21,7 @@ class forecastResponseTransformer
             'name' => $forecast['location']->name,
             'country' => $forecast['location']->country,
             'latitude' => $forecast['location']->lat,
-            'longtitude' => $forecast['location']->lon,
+            'longitude' => $forecast['location']->lon,
             'current_condition' => (reset($forecast['weather'])) ? reset($forecast['weather'])->getConditionCode() : 0
         ];
 

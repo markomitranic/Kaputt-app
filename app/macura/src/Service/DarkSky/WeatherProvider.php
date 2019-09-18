@@ -4,21 +4,15 @@ namespace App\Service\DarkSky;
 
 use App\Service\DarkSky\Transformer\DateToDateString;
 use DmitryIvanov\DarkSkyApi\DarkSkyApi;
-use DmitryIvanov\DarkSkyApi\Weather\Forecast;
 use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
 use Psr\Cache\InvalidArgumentException;
-use Symfony\Component\Cache\Adapter\AdapterInterface;
 use Symfony\Contracts\Cache\CacheInterface;
 
 class WeatherProvider
 {
 
     /** @var string[]  */
-    const EXCLUDE_INFORMATION = [
-        'currently',
-        'hourly',
-        'flags'
-    ];
+    const EXCLUDE_INFORMATION = ['daily'];
 
     /**
      * @var DarkSkyApi
@@ -51,7 +45,7 @@ class WeatherProvider
         $cacheKey = $this->getCacheKeyFromParams($lat, $lon, ...$dateStrings);
 
         try {
-            /** @var Forecast $weatherData */
+            /** @var TimeMachine[] $weatherData */
             $weatherData = $this->cacheAdapter->get($cacheKey, function() use ($lat, $lon, $dateStrings) {
                 return $this->requestWeatherData($lat, $lon, ...$dateStrings);
             });

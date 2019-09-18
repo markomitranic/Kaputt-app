@@ -1,0 +1,152 @@
+[
+    {
+        "name": "T-Shirt",
+        "slug": "t-shirt",
+        "description": "Good to have for any occasion."
+    },
+    {
+        "name": "Sleeved Shirt",
+        "slug": "sleeved-shirt",
+        "description": "Temperature will fall below 20c."
+    },
+    {
+        "name": "Hoodie",
+        "slug": "hoodie",
+        "description": "Colder climate expected."
+    },
+    {
+        "name": "Sweater",
+        "slug": "sweater",
+        "description": "Chilly weather. Wool is the key."
+    },
+    {
+        "name": "Shorts",
+        "slug": "shorts",
+        "description": "Temperature will stay above 22c."
+    },
+    {
+        "name": "Light Pants",
+        "slug": "light-pants",
+        "description": "Temperature around 20c."
+    },
+    {
+        "name": "Jeans",
+        "slug": "jeans",
+        "description": "Good to have for any occasion."
+    },
+    {
+        "name": "Sweat Pants",
+        "slug": "sweat-pants",
+        "description": "A nice thing to have in hotel or for an evening run."
+    },
+    {
+        "name": "Heavy Pants",
+        "slug": "heavy-pants",
+        "description": "Polar conditions ahead."
+    },
+    {
+        "name": "Sandals",
+        "slug": "sandals",
+        "description": "Or flippers. Temperature above 25c expected."
+    },
+    {
+        "name": "Light Sneakers",
+        "slug": "light-sneakers",
+        "description": "A general purpose for moderate weather."
+    },
+    {
+        "name": "Sneakers",
+        "slug": "sneakers",
+        "description": "Tougher and warmer general purpose sneakers."
+    },
+    {
+        "name": "Shoes",
+        "slug": "shoes",
+        "description": "Good idea if the weather is rainy or colder."
+    },
+    {
+        "name": "Winter Shoes",
+        "slug": "winter-shoes",
+        "description": "Serious protection in cold weather."
+    },
+    {
+        "name": "Windbreaker",
+        "slug": "windbreaker",
+        "description": "Warm but really windy weather."
+    },
+    {
+        "name": "Vest",
+        "slug": "vest",
+        "description": "Good accessory for travelers in colder days."
+    },
+    {
+        "name": "Jacket",
+        "slug": "jacket",
+        "description": "Don't catch that cold!"
+    },
+    {
+        "name": "Overcoat",
+        "slug": "overcoat",
+        "description": "A classy decision for cold and windy weather."
+    },
+    {
+        "name": "Heavy Jacket",
+        "slug": "heavy-jacket",
+        "description": "Winter ahead."
+    },
+    {
+        "name": "Cap",
+        "slug": "cap",
+        "description": "Protect whats important. Sun can be worse than rain."
+    },
+    {
+        "name": "Winter Hat",
+        "slug": "winter-hat",
+        "description": "Winter is coming."
+    },
+    {
+        "name": "Scarf",
+        "slug": "scarf",
+        "description": "Protect your health. Heavy wind, winter or snow expected."
+    },
+    {
+        "name": "Gloves",
+        "slug": "gloves",
+        "description": "Those winter-fingers need some warmth too!"
+    },
+    {
+        "name": "Parasol",
+        "slug": "parasol",
+        "description": "So hot. It burns."
+    },
+    {
+        "name": "Umbrella",
+        "slug": "umbrella",
+        "description": "Heavy rain or infernal sun expected."
+    },
+    {
+        "name": "Water",
+        "slug": "water",
+        "description": "It's too warm."
+    },
+    {
+        "name": "Sunshades",
+        "slug": "sunshades",
+        "description": "Stay cool in warm weather."
+    },
+    {
+        "name": "UV Protection",
+        "slug": "uv-protection",
+        "description": "Your tender skin needs this. Seriously, it burns."
+    },
+    {
+        "name": "Underpants",
+        "slug": "underpants",
+        "description": "Always good to have around."
+    },
+    {
+        "name": "Socks",
+        "slug": "socks",
+        "description": "Your roommates will thank you.  <3"
+    }
+]
