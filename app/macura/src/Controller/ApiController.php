@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Service\ClothesForecast\ClothesForecastService;
 use App\Service\ClothesForecast\Request\RequestDTOTransformer;
-use App\Service\Transformer\DateRangeTransformer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 

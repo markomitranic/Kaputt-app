@@ -59,7 +59,7 @@ class Item implements \JsonSerializable
      */
     public function getImageUrl(): string
     {
-        return $this->slug . '.jpg';
+        return $this->slug;
     }
 
     /**
