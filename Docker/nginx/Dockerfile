@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM nginx:latest AS prod
 
 ARG SSL_CERTS_PATH
 COPY $SSL_CERTS_PATH /etc/nginx/ssl
@@ -12,3 +12,6 @@ COPY ./Docker/nginx/conf/macura.conf /etc/nginx/conf.d/macura.conf
 
 COPY ./app/ /app/
 WORKDIR /app/
+
+FROM prod AS dev
+COPY ./Docker/nginx/conf/kaputt-dev.conf /etc/nginx/conf.d/kaputt.conf

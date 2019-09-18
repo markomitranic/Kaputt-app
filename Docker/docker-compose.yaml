@@ -7,6 +7,7 @@ services:
         build:
             context: ../
             dockerfile: ./Docker/nginx/Dockerfile
+            target: ${ENV}
             args:
                 - SSL_CERTS_PATH=${SSL_CERTS_PATH}
         restart: always
@@ -27,8 +28,6 @@ services:
             APP_ENV: ${ENV}
             APP_DEBUG: ${SYMFONY_APP_DEBUG}
             DARKSKY_API_KEY: ${DARKSKY_API_KEY}
-            ALGOLIA_APP_ID: ${ALGOLIA_APP_ID}
-            ALGOLIA_API_KEY: ${ALGOLIA_API_KEY}
         entrypoint: /app/entrypoint.sh
         restart: always
         networks:

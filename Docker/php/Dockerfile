@@ -18,7 +18,7 @@ COPY ./Docker/php/conf/php-fpm.conf /usr/local/etc/php-fpm.d/zzz-app-fpm.conf
 COPY ./Docker/php/conf/php.ini /usr/local/etc/php/conf.d/app-php.ini
 
 ADD ./app/macura /app/macura/
-# COPY --from=build /app/macura/vendor/ /app/macura/vendor/
+COPY --from=build /app/macura/vendor/ /app/macura/vendor/
 RUN mkdir -p /app/macura/var/cache
 
 COPY ./Docker/php/entrypoint.sh /app/entrypoint.sh
@@ -30,9 +30,6 @@ FROM prod AS dev
 RUN apt-get install -y wget zip unzip libzip-dev git
 RUN docker-php-ext-install zip
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-RUN wget https://get.symfony.com/cli/installer -O - | bash \
-	&& mv /root/.symfony/bin/symfony /usr/local/bin/symfony
-
 COPY ./Docker/php/entrypoint-dev.sh /app/entrypoint.sh
 RUN ["chmod", "+x", "/app/entrypoint.sh"]
 
