@@ -41,8 +41,9 @@ ENV XDEBUG_ACTIVE=${XDEBUG_ACTIVE}
 RUN if [ "$XDEBUG_ACTIVE" -eq 1 ] ; then \
         yes | pecl install xdebug \
         && PHP_IDE_CONFIG="serverName=kaputtweather.com" \
+        && echo "zend_extension=xdebug.so" >> /usr/local/etc/php/conf.d/xdebug.ini \
         && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini \
         && echo "xdebug.remote_autostart=on" >> /usr/local/etc/php/conf.d/xdebug.ini \
-        && echo "xdebug.remote_host=$HOST_IP" >> /usr/local/etc/php/conf.d/xdebug.ini \
+        && echo "xdebug.remote_host=host.docker.internal" >> /usr/local/etc/php/conf.d/xdebug.ini \
         && echo "xdebug.idekey=KAPUTT-DEBUG" >> /usr/local/etc/php/conf.d/xdebug.ini \
     ; fi

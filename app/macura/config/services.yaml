@@ -26,6 +26,7 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    App\Service\DarkSky\WeatherService:
+    App\Service\DarkSky\WeatherProvider:
         arguments:
             $apiKey: '%env(DARKSKY_API_KEY)%'
+            $cacheAdapter: '@app.cache.weather'

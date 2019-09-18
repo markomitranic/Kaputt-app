@@ -1,11 +1,3 @@
 forecast:
     path: /forecast
     controller: App\Controller\ApiController::forecast
-
-autocomplete:
-    path: /autocomplete
-    controller: App\Controller\ApiController::autocomplete
-
-sanityCheck:
-    path: /sanityCheck
-    controller: App\Controller\ApiController::sanityCheck

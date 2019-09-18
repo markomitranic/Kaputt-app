@@ -1,12 +1,6 @@
 {
-    "composer/ca-bundle": {
-        "version": "1.2.4"
-    },
     "dmitry-ivanov/dark-sky-api": {
         "version": "1.1.0"
-    },
-    "geoip2/geoip2": {
-        "version": "v2.9.0"
     },
     "guzzlehttp/guzzle": {
         "version": "6.3.3"
@@ -17,11 +11,8 @@
     "guzzlehttp/psr7": {
         "version": "1.6.1"
     },
-    "maxmind-db/reader": {
-        "version": "v1.4.1"
-    },
-    "maxmind/web-service-common": {
-        "version": "v0.5.0"
+    "joshtronic/php-googleplaces": {
+        "version": "1.0.0"
     },
     "psr/cache": {
         "version": "1.0.1"
@@ -34,6 +25,9 @@
     },
     "psr/log": {
         "version": "1.1.0"
+    },
+    "psr/simple-cache": {
+        "version": "1.0.1"
     },
     "ralouphie/getallheaders": {
         "version": "3.0.3"
