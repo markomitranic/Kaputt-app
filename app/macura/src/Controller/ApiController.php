@@ -10,6 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 class ApiController
 {
 
+    /** @var int  */
+    const CACHE_TIMEOUT = 43200; # 12 hours
+
     /**
      * @param RequestDTOTransformer $requestTransformer
      * @param ClothesForecastService $clothesForecastService
@@ -30,6 +33,9 @@ class ApiController
             ...$requestDto->getDateRange()
         );
 
-        return new JsonResponse($clothesForecast);
+        $response = new JsonResponse($clothesForecast);
+        $response->setSharedMaxAge(self::CACHE_TIMEOUT);
+
+        return $response;
     }
 }
