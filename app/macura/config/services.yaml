@@ -41,9 +41,9 @@ services:
 
     App\Service\ClothesForecast\ForecastResolver:
         calls:
-            - { method: addDecorator, arguments: ['@App\Service\ClothesForecast\Decorator\Basic'] }
-            - { method: addDecorator, arguments: ['@App\Service\ClothesForecast\Decorator\Temperature'] }
+            - { method: addDecorator, arguments: ['@App\Service\ClothesForecast\Decorator\UV'] }
             - { method: addDecorator, arguments: ['@App\Service\ClothesForecast\Decorator\Rain'] }
             - { method: addDecorator, arguments: ['@App\Service\ClothesForecast\Decorator\Snow'] }
             - { method: addDecorator, arguments: ['@App\Service\ClothesForecast\Decorator\Wind'] }
-            - { method: addDecorator, arguments: ['@App\Service\ClothesForecast\Decorator\UV'] }
+            - { method: addDecorator, arguments: ['@App\Service\ClothesForecast\Decorator\Temperature'] }
+            - { method: addDecorator, arguments: ['@App\Service\ClothesForecast\Decorator\Basic'] }
