@@ -12,7 +12,7 @@ services:
                 - SSL_CERTS_PATH=${SSL_CERTS_PATH}
         restart: always
         ports:
-            - ${LISTEN_PORT}:443
+            - ${HTTPS_PORT}:443
         networks:
             - kaputt
 

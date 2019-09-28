@@ -15,3 +15,4 @@ WORKDIR /app/
 
 FROM prod AS dev
 COPY ./Docker/nginx/conf/kaputt-dev.conf /etc/nginx/conf.d/kaputt.conf
+RUN rm /etc/nginx/conf.d/tls.conf

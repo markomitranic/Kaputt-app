@@ -7,7 +7,7 @@ RUN docker-php-ext-install zip
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ADD ./app/macura /app/macura
 WORKDIR /app/macura/
-# RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --optimize-autoloader --no-scripts --no-plugins
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --optimize-autoloader --no-scripts --no-plugins
 
 ## Runtime
 FROM php:7.3-fpm AS prod
