@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <div class="form-group">
+          <label>Character: </label>
+          <find-location field="name"></find-location>
+      </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FindLocation from './components/FindLocation';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+      FindLocation
   }
 }
 </script>
