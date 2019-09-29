@@ -44,9 +44,11 @@
             this.$http('http://kaputtweather.com/api/forecast?lat=52.5200&lon=13.4050&dateRange=2019-09-20_2019-09-23')
                 .then(response => {
                     this.results = response.data;
+                    /* eslint-disable no-console */
                     console.log(response.data)
                 })
                 .catch(error => {
+                    /* eslint-disable no-console */
                     console.log(error);
                 })
         },
@@ -55,9 +57,11 @@
                 this.$http('http://kaputtweather.com/api/forecast?lat=52.5200&lon=13.4050&dateRange='+val)
                     .then(response => {
                         this.results = response.data;
+                        /* eslint-disable no-console */
                         console.log(response.data)
                     })
                     .catch(error => {
+                        /* eslint-disable no-console */
                         console.log(error);
                     })
             }
