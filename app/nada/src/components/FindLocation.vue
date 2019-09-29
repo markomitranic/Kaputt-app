@@ -3,7 +3,7 @@
         <label>Test Autocomplete</label>
 
         <label>
-            <input type="text" name="city" size="35">
+            <location-search></location-search>
         </label>
 
         <div>
@@ -27,11 +27,13 @@
 </template>
 
 <script>
+    import LocationSearch from './LocationSearch';
     import Datepicker from 'vuejs-datepicker';
     export default {
         name: 'FindLocation',
         components: {
-            Datepicker
+            Datepicker,
+            LocationSearch
         },
         data() {
             return {
