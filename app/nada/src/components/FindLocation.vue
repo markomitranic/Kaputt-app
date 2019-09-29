@@ -3,7 +3,7 @@
         <label>Test Autocomplete</label>
 
         <label>
-            <location-search></location-search>
+            <location-search @locationChange="locationChangeListener"></location-search>
         </label>
 
         <div>
@@ -38,6 +38,7 @@
         data() {
             return {
                 results: [],
+                locationCoordinates: null
             }
         },
         mounted() {
@@ -64,6 +65,10 @@
                         /* eslint-disable no-console */
                         console.log(error);
                     })
+            },
+            locationChangeListener(data) {
+                // data = {lat: 44.8178, lng: 20.4568} or null
+                this.locationCoordinates = data;
             }
         }
     }

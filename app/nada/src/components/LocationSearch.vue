@@ -12,9 +12,7 @@
         components: {
         },
         data() {
-            return {
-                selectedItem: null
-            }
+            return {}
         },
         mounted() {
             var placesAutocomplete = places({
@@ -36,10 +34,10 @@
         },
         methods: {
             addressChangedListener(e) {
-                this.selectedItem = e.suggestion.latlng;
+                this.$emit('locationChange', e.suggestion.latlng);
             },
             addressClearedListener() {
-                this.selectedItem = null;
+                this.$emit('locationChange', null);
             }
         }
     }
