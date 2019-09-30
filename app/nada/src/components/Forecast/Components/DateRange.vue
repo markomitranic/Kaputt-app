@@ -93,6 +93,10 @@
 
 <style scoped lang="scss">
     #date-range {
+        input {
+            border: 1px solid black;
+        }
+
         p.error {
             color:red;
 

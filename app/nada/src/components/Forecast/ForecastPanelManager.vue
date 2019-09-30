@@ -14,14 +14,12 @@
 </template>
 
 <script>
-    import VueSlideoutPanel from 'vue2-slideout-panel';
     import SearchPanel from "./SearchPanel";
     import ResultPanel from "./ResultPanel";
 
     export default {
         name: 'ForecastPanel',
         components: {
-            VueSlideoutPanel,
             SearchPanel,
             ResultPanel
         },
@@ -46,7 +44,6 @@
                 setTimeout(() => {
                     this.forecastResults = null;
                 }, 400);
-                console.log('close the result panel');
             }
 
         }

@@ -6,21 +6,18 @@
         <date-range @dateRangeChange="dateRangeChangeListener"></date-range>
 
         <button v-on:click="getForecast()" v-bind:disabled="sendingDisabled">Send</button>
-        <weather-display></weather-display>
     </div>
 </template>
 
 <script>
     import LocationSearch from './Components/LocationSearch';
     import DateRange from "./Components/DateRange";
-    import WeatherDisplay from "./Components/WeatherDisplay";
 
     export default {
         name: 'FindLocation',
         components: {
             DateRange,
             LocationSearch,
-            WeatherDisplay
         },
         data() {
             return {

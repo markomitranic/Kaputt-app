@@ -1,6 +1,6 @@
 <template>
     <div id="result-panel" v-bind:class="{ visible: visible }">
-        <div id="closePanelButton" v-on:click="closePanel"><-</div>
+        <div id="closePanelButton" v-on:click="closePanel">back</div>
 
         <div id="loading" v-bind:class="{ visible: loading }"></div>
         <div id="wrapper" v-bind:class="{ visible: !loading }">
