@@ -1,7 +1,11 @@
 <template>
     <div id="result-panel" v-bind:class="{ visible: visible }">
-        <div id="closePanel" v-on:click="closePanel"><-</div>
-        value: {{results}}
+        <div id="closePanelButton" v-on:click="closePanel"><-</div>
+
+        <div id="loading" v-bind:class="{ visible: loading }"></div>
+        <div id="wrapper" v-bind:class="{ visible: !loading }">
+            value: {{results}}
+        </div>
     </div>
 </template>
 
@@ -12,6 +16,7 @@
         components: {
         },
         props: {
+            loading: Boolean,
             visible: Boolean,
             results: Array
         },
@@ -40,6 +45,22 @@
 
         &.visible {
             left: 0%;
+        }
+
+        #loading {
+            display: block;
+
+            &.visible {
+                display: none;
+            }
+        }
+
+        #wrapper {
+            display: none;
+
+            &.visible {
+                display: block;
+            }
         }
     }
 </style>

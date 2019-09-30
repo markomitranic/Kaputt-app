@@ -43,6 +43,8 @@
                     return;
                 }
 
+                this.$emit('awaitingResults');
+
                 this.$http('/api/forecast', {
                     params: {
                         dateRange: this.dateRange,

@@ -1,16 +1,16 @@
 <template>
     <div id="container">
-        <forecast-panel></forecast-panel>
+        <forecast-panel-manager></forecast-panel-manager>
     </div>
 </template>
 
 <script>
-    import ForecastPanel from './Forecast/ForecastPanel';
+    import ForecastPanelManager from "./Forecast/ForecastPanelManager";
 
     export default {
         name: 'Window',
         components: {
-            ForecastPanel
+            ForecastPanelManager
         }
     }
 </script>
