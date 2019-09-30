@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-      <div class="form-group">
-          <label>Character: </label>
-          <find-location field="name"></find-location>
-      </div>
+      <window></window>
   </div>
 </template>
 
 <script>
-import FindLocation from './components/FindLocation';
+import Window from './components/Window';
 
 export default {
   name: 'app',
   components: {
-      FindLocation
+      Window
   }
 }
 </script>

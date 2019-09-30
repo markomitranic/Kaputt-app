@@ -1,7 +1,7 @@
 <template>
     <div>
         <label>Kaputt</label>
-{{this.dateRange}}
+
         <location-search @locationChange="locationChangeListener"></location-search>
         <date-range @dateRangeChange="dateRangeChangeListener"></date-range>
 
@@ -11,9 +11,9 @@
 </template>
 
 <script>
-    import LocationSearch from './LocationSearch';
-    import DateRange from "./DateRange";
-    import WeatherDisplay from "./WeatherDisplay";
+    import LocationSearch from './Components/LocationSearch';
+    import DateRange from "./Components/DateRange";
+    import WeatherDisplay from "./Components/WeatherDisplay";
 
     export default {
         name: 'FindLocation',
@@ -39,6 +39,10 @@
         },
         methods: {
             getForecast() {
+                if (this.locationCoordinates === null || this.dateRange === null) {
+                    return;
+                }
+
                 this.$http('/api/forecast', {
                     params: {
                         dateRange: this.dateRange,
@@ -46,8 +50,7 @@
                         lon: this.locationCoordinates.lng
                     }
                 }).then(response => {
-                    /* eslint-disable no-console */
-                    console.log(response);
+                    this.$emit('resultsReceived', response.data);
                 }).catch(error => {
                     /* eslint-disable no-console */
                     console.error(error);
