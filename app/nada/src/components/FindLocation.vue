@@ -16,29 +16,37 @@
                 </tr>
                 </tbody>
             </table>
+            <button v-on:click="dateRange()">Send</button>
         </div>
 
         <div class="auto-complete">
             {{results}}
         </div>
-        <datepicker @selected="chn"></datepicker>
-        <datepicker></datepicker>
+        <datepicker v-model="start"></datepicker>
+        <datepicker v-model="end"></datepicker>
+        <weather-display></weather-display>
     </div>
 </template>
 
 <script>
     import LocationSearch from './LocationSearch';
     import Datepicker from 'vuejs-datepicker';
+    import WeatherDisplay from "./WeatherDisplay";
+
+
     export default {
         name: 'FindLocation',
         components: {
             Datepicker,
-            LocationSearch
+            LocationSearch,
+            WeatherDisplay
         },
         data() {
             return {
                 results: [],
-                locationCoordinates: null
+                locationCoordinates: null,
+                start:'',
+                end:''
             }
         },
         mounted() {
@@ -54,8 +62,8 @@
                 })
         },
         methods: {
-            chn(val) {
-                this.$http('http://kaputtweather.com/api/forecast?lat=52.5200&lon=13.4050&dateRange='+val)
+            dateRange() {
+                this.$http('http://kaputtweather.com/api/forecast?lat=52.5200&lon=13.4050&dateRange='+ this.start+this.end)
                     .then(response => {
                         this.results = response.data;
                         /* eslint-disable no-console */
