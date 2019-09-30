@@ -38,6 +38,7 @@
             },
             showLoadingPanel() {
                 this.loadingPanelVisible = true;
+                this.resultPanelVisible = true;
             },
             closeResultPanel() {
                 this.resultPanelVisible = false;
