@@ -26,9 +26,9 @@ export default {
             -moz-osx-font-smoothing: grayscale;
             text-align: center;
             color: #2c3e50;
-            width: 100vw;
+            overflow: hidden;
             height: 100vh;
-            overflow-y: scroll;
+            width: 100vw;
             margin: 0;
             position: relative;
             display: flex;
