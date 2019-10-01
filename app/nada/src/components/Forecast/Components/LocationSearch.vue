@@ -71,6 +71,7 @@
             line-height: 60px;
             font-size: 18px;
             padding-left: 45px;
+            border-radius: 4px;
         }
     }
 </style>

@@ -1,8 +1,8 @@
 <template>
     <div id="date-range">
-        <datepicker @input="startDateChangeListener"></datepicker>
+        <datepicker @input="startDateChangeListener" :placeholder="pickDateLabel"></datepicker>
         <p class="error" v-bind:class="{ disabled: !startDateErrorMessage }">{{startDateErrorMessage}}</p>
-        <datepicker @input="endDateChangeListener"></datepicker>
+        <datepicker @input="endDateChangeListener" :placeholder="pickDateLabel"></datepicker>
         <p class="error" v-bind:class="{ disabled: !endDateErrorMessage }">{{startDateErrorMessage}}</p>
     </div>
 </template>
@@ -18,6 +18,7 @@
         },
         data() {
             return {
+                pickDateLabel: 'Pick a date...',
                 startDate: null,
                 startDateErrorMessage: null,
                 endDate: null,
@@ -91,14 +92,51 @@
     }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
     #date-range {
-        input {
-            border: 1px solid black;
+        padding: 10px 15px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+
+        .vdp-datepicker {
+
+            &::before {
+                content: "";
+                display: block;
+                background-image: url("/assets/calendar-icon.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center center;
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                top: 15px;
+                left: 9px;
+                z-index: 1;
+            }
+
+            input {
+                border: 1px solid #CCC;
+                height: 60px;
+                line-height: 60px;
+                font-size: 18px;
+                padding-left: 45px;
+                width: 100%;
+                border-radius: 4px;
+                margin-bottom: 10px;
+                color: #757575;
+            }
         }
 
         p.error {
-            color:red;
+            color: red;
+            margin: 0;
+            text-align: left;
+            width: 100%;
+            font-size: 12px;
+            line-height: 14px;
+            margin-bottom: 10px;
 
             &.disabled {
                 display: none;
