@@ -1,6 +1,6 @@
 <template>
     <div id="movie">
-        <svg :src="`/assets/movies/${movieFilename}.svg`"></svg>
+        <img :src="`/assets/movies/${movieFilename}.svg`">
     </div>
 </template>
 
@@ -12,7 +12,6 @@
         },
         data() {
             return {
-                type: 'clear-day'
             }
         },
         computed: {
@@ -30,6 +29,16 @@
     }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+    #movie {
+        display: block;
+        width: 100%;
+        height: auto;
+        
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
 </style>

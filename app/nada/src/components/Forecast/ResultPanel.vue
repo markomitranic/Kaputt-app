@@ -6,12 +6,12 @@
             loading...
         </div>
         <div id="wrapper">
-            <movie :type="results[selectedDay]"></movie>
+            <movie :type="results[selectedDay].weatherConditions.movie" v-if="Array.isArray(results)"></movie>
             <ul class="dates">
                 <li class="date-item" v-for="(item, index) in results" :key="index">
                     <div class="dayButton" v-on:click="changeDay(index)" v-bind:class="{ selected: index === selectedDay }">
                         <span class="date">{{formatDate(item.date)}}</span>
-                        <img :src="`/assets/weather-icons/${item.weatherConditions.icon}.svg`" alt="" class="icon">
+                        <img :src="`/assets/weather-icons/${item.weatherConditions.icon}.png`" alt="" class="icon">
                         <span class="temperature">{{item.weatherConditions.temperature}}</span>
                     </div>
                 </li>
@@ -20,7 +20,7 @@
             <ul class="clothes-list" v-if="Array.isArray(results)">
                 <li class="clothes-item" v-for="(item, index) in results[selectedDay]['clothes']" :key="index">
                     <div class="image">
-                        <img :src="`/assets/clothes-icons/${item.icon}.png`" alt="" class="icon">
+                        <img :src="`/assets/clothes-icons/${item.icon}.svg`" alt="" class="icon">
                     </div>
                     <span class="description">
                         <span class="clothes-type">{{item.name}}</span>
@@ -107,7 +107,7 @@
                 display: flex;
                 background: #ececec;
                 width: 100%;
-                height: 125px;
+                min-height: 100px;
 
                 .date-item {
                     display: block;
