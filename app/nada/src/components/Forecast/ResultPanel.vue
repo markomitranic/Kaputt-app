@@ -8,13 +8,13 @@
         <div id="wrapper">
             <ul class="dates">
                 <li class="date-item" v-for="(item, index) in results" :key="index">
-                    <span class="date">{{formatDate(item.date)}}</span>
+                    <span class="date" v-on:click="setSelected(item)">{{formatDate(item.date)}}</span>
                     <img :src="`/assets/weather-icons/${item.weatherConditions.icon}.png`" alt="" class="icon">
                     <span class="temperature">{{item.weatherConditions.temperature}}</span>
                 </li>
             </ul>
 
-            <ul class="clothes-list" v-for="(item, index) in results" :key="index">
+            <ul class="clothes-list" v-for="(item, index) in results" :key="index" v-if="isVisible(item)">
                 <li class="clothes-item" v-for="(item, index) in results" :key="index">
                     <img :src="`/assets/clothes-icons/${item.clothes[index].icon}.png`" alt="" class="icon">
                     <span class="description">
@@ -40,7 +40,9 @@
             results: Array
         },
         data() {
-            return {}
+            return {
+                selected: null
+            }
         },
         methods: {
             closePanel() {
@@ -48,6 +50,16 @@
             },
             formatDate(date) {
                 return moment(date).format('DD MMM');
+            },
+            isVisible(item) {
+                if (!this.selected) {
+                    return item.date === this.results[0].date;
+                }
+                console.log(item.date, this.selected.date);
+                return item.date === this.selected.date;
+            },
+            setSelected(item) {
+                this.selected = item;
             }
         }
     }
@@ -111,6 +123,7 @@
             list-style: none;
             padding: 0;
             margin-bottom: 50px;
+            border: 1px solid red;
 
             .clothes-item {
                 border-bottom: 1px solid #e6e6e6;
