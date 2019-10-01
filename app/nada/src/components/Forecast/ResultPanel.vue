@@ -5,6 +5,7 @@
         <div id="loading" v-bind:class="{ visible: loading }"></div>
         <div id="wrapper" v-bind:class="{ visible: !loading }">
             value: {{results}}
+            div.
         </div>
     </div>
 </template>

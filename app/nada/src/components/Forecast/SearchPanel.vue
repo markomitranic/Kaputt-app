@@ -1,11 +1,12 @@
 <template>
-    <div>
-        <label>Kaputt</label>
+    <div id="search-panel">
+        <h1>Kaputt 👕👚👖👙</h1>
+        <p>Kaputt suggests you what to wear based on the weather forecast. It's a clothes forecast!</p>
 
         <location-search @locationChange="locationChangeListener"></location-search>
         <date-range @dateRangeChange="dateRangeChangeListener"></date-range>
 
-        <button v-on:click="getForecast()" v-bind:disabled="sendingDisabled">Send</button>
+        <button v-on:click="getForecast()" v-bind:disabled="sendingDisabled">Tell me what to pack!</button>
     </div>
 </template>
 
@@ -40,7 +41,7 @@
                     return;
                 }
 
-                this.$emit('awaitingResults');
+                this.$emit('w');
 
                 this.$http('/api/forecast', {
                     params: {
@@ -66,6 +67,41 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    #search-panel {
+        height: 100%;
+        width: 100%;
+        padding-top: 60px;
 
+        & > h1 {
+            text-align: left;
+            padding: 5px 15px 15px 15px;
+            margin: 0;
+            font-size: 34px;
+        }
+        & > p {
+            text-align: left;
+            font-size: 18px;
+            padding: 0 15px;
+            margin-top: 10px;
+            margin-bottom: 50px;
+        }
+        button {
+            width: calc(100% - 40px);
+            height: 60px;
+            display: block;
+            background-color: #73cac1;
+            color: white;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border: 0;
+            margin: 20px;
+            box-sizing: border-box;
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            border-radius: 5px;
+        }
+    }
 </style>

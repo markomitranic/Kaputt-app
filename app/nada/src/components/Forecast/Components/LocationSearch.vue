@@ -1,6 +1,6 @@
 <template>
     <div id="location-search">
-        <input type="search" id="city" class="form-control" placeholder="In which city do you live?" />
+        <input type="search" id="city" class="form-control" placeholder="Where are we going?" autocomplete="off" />
     </div>
 </template>
 
@@ -45,8 +45,32 @@
 
 <style scoped lang="scss">
     #location-search {
+        padding: 0 15px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+
+        &:before {
+            content: "";
+            display: block;
+            background-image: url("/assets/search-icon.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: 36px;
+            height: 36px;
+            position: absolute;
+            top: 12px;
+            left: 22px;
+            z-index: 1;
+        }
         input {
-            color:red;
+            position: relative;
+            vertical-align: top;
+            height: 60px;
+            line-height: 60px;
+            font-size: 18px;
+            padding-left: 45px;
         }
     }
 </style>

@@ -52,5 +52,8 @@
 </script>
 
 <style scoped>
-
+    #forecast-panel {
+        height: 100%;
+        width: 100%;
+    }
 </style>
