@@ -60,8 +60,8 @@
                     }
                 }
 
-                const startDateNumeric = parseInt(moment(this.startDate).unix());
-                const endDateNumeric = parseInt(moment(this.endDate).unix());
+                const startDateNumeric = parseInt(moment(this.startDate, 'YYYY-MM-DD').unix());
+                const endDateNumeric = parseInt(moment(this.endDate, 'YYYY-MM-DD').unix());
                 if (startDateNumeric > endDateNumeric) {
                     this.startDateErrorMessage = 'Start Date must be before the end date.';
                     this.endDateErrorMessage = 'End Date must be after the start date.';
