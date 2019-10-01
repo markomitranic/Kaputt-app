@@ -18,7 +18,9 @@
 
             <ul class="clothes-list" v-if="Array.isArray(results)">
                 <li class="clothes-item" v-for="(item, index) in results[selectedDay]['clothes']" :key="index">
-                    <img :src="`/assets/clothes-icons/${item.icon}.png`" alt="" class="icon">
+                    <div class="image">
+                        <img :src="`/assets/clothes-icons/${item.icon}.png`" alt="" class="icon">
+                    </div>
                     <span class="description">
                         <span class="clothes-type">{{item.name}}</span>
                         <span class="type-description">{{item.description}}</span>
@@ -156,10 +158,21 @@
                 .clothes-item {
                     border-bottom: 1px solid #e6e6e6;
                     display: flex;
+                    align-items: stretch;
+                    justify-content: flex-start;
+                    padding: 10px 5px;
+                    box-sizing: border-box;
 
-                    .icon {
+                    .image {
+                        margin-right: 5px;
+                        height: 60px;
                         width: 60px;
-                        height: auto;
+                        overflow: hidden;
+
+                        .icon {
+                            width: 100%;
+                            height: auto;
+                        }
                     }
 
                     .description {
@@ -171,6 +184,10 @@
 
                         .clothes-type {
                             margin-bottom: 2px;
+                        }
+                        .type-description {
+                            font-size: 14px;
+                            color: #717171;
                         }
                     }
                 }
