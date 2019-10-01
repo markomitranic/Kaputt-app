@@ -29,12 +29,13 @@ export default {
             overflow: hidden;
             height: 100vh;
             width: 100vw;
-            margin: 0;
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: stretch;
             align-items: center;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
     }

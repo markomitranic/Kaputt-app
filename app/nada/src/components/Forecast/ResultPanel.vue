@@ -6,7 +6,10 @@
             loading...
         </div>
         <div id="wrapper">
-            <movie :type="results[selectedDay].weatherConditions.movie" v-if="Array.isArray(results)"></movie>
+            <movie
+                v-if="Array.isArray(results)"
+                :type="results[selectedDay].weatherConditions.movie"
+            ></movie>
             <ul class="dates">
                 <li class="date-item" v-for="(item, index) in results" :key="index">
                     <div class="dayButton" v-on:click="changeDay(index)" v-bind:class="{ selected: index === selectedDay }">
