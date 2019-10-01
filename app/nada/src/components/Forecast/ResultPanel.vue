@@ -8,18 +8,20 @@
         <div id="wrapper">
             <ul class="dates">
                 <li class="date-item" v-for="(item, index) in results" :key="index">
-                    <span class="date">{{formatDate(item.date)}}</span>
-                    <img :src="`/assets/weather-icons/${item.weatherConditions.icon}.png`" alt="" class="icon">
-                    <span class="temperature">{{item.weatherConditions.temperature}}</span>
+                    <div class="dayButton" v-on:click="changeDay(index)" v-bind:class="{ selected: index === selectedDay }">
+                        <span class="date">{{formatDate(item.date)}}</span>
+                        <img :src="`/assets/weather-icons/${item.weatherConditions.icon}.png`" alt="" class="icon">
+                        <span class="temperature">{{item.weatherConditions.temperature}}</span>
+                    </div>
                 </li>
             </ul>
 
-            <ul class="clothes-list" v-for="(item, index) in results" :key="index">
-                <li class="clothes-item" v-for="(item, index) in results" :key="index">
-                    <img :src="`/assets/clothes-icons/${item.clothes[index].icon}.png`" alt="" class="icon">
+            <ul class="clothes-list" v-if="Array.isArray(results)">
+                <li class="clothes-item" v-for="(item, index) in results[selectedDay]['clothes']" :key="index">
+                    <img :src="`/assets/clothes-icons/${item.icon}.png`" alt="" class="icon">
                     <span class="description">
-                        <span class="clothes-type">{{item.clothes[index].name}}</span>
-                        <span class="type-description">{{item.clothes[index].description}}</span>
+                        <span class="clothes-type">{{item.name}}</span>
+                        <span class="type-description">{{item.description}}</span>
                     </span>
                 </li>
             </ul>
@@ -40,7 +42,9 @@
             results: Array
         },
         data() {
-            return {}
+            return {
+                selectedDay: 0
+            }
         },
         methods: {
             closePanel() {
@@ -48,6 +52,9 @@
             },
             formatDate(date) {
                 return moment(date).format('DD MMM');
+            },
+            changeDay(index) {
+                this.selectedDay = index;
             }
         }
     }
@@ -78,58 +85,93 @@
             }
         }
 
-        .dates {
-            list-style: none;
-            padding: 0;
+        #wrapper {
             display: flex;
-            background: #ececec;
+            flex-direction: column;
+            align-items: center;
+            justify-content: stretch;
+            height: 100%;
 
-            .date-item {
+            .dates {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: auto;
                 display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 10px 20px;
+                background: #ececec;
+                width: 100%;
+                height: 125px;
 
-                .date {
-                    font-size: 13px;
-                }
+                .date-item {
+                    display: block;
+                    min-width: 80px;
+                    margin: 10px 5px;
 
-                .icon {
-                    width: 30px;
-                    height: auto;
-                    margin: 5px 0;
-                }
+                    .dayButton {
+                        cursor: pointer;
+                        border-radius: 5px;
+                        padding: 5px;
 
-                .temperature {
-                    font-size: 14px;
-                    font-weight: bold;
+                        &:hover {
+                            background-color: #dedede;
+                        }
+
+                        &.selected {
+                            background-color: #c4c4c4;
+                        }
+
+                        .date {
+                            font-size: 13px;
+                            display: block;
+                        }
+
+                        .icon {
+                            display: block;
+                            width: 30px;
+                            height: auto;
+                            margin: 5px auto;
+                        }
+
+                        .temperature {
+                            display: block;
+                            font-size: 14px;
+                            font-weight: bold;
+                        }
+                    }
                 }
             }
-        }
 
-        .clothes-list {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 50px;
+            .clothes-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                overflow-x: hidden;
+                overflow-y: scroll;
+                -webkit-overflow-scrolling: auto;
 
-            .clothes-item {
-                border-bottom: 1px solid #e6e6e6;
-                display: flex;
-
-                .icon {
-                    width: 60px;
-                    height: auto;
-                }
-
-                .description {
+                .clothes-item {
+                    border-bottom: 1px solid #e6e6e6;
                     display: flex;
-                    flex-direction: column;
-                    align-items: start;
-                    justify-content: center;
-                    font-size: 14px;
 
-                    .clothes-type {
-                        margin-bottom: 2px;
+                    .icon {
+                        width: 60px;
+                        height: auto;
+                    }
+
+                    .description {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: start;
+                        justify-content: center;
+                        font-size: 14px;
+
+                        .clothes-type {
+                            margin-bottom: 2px;
+                        }
                     }
                 }
             }
