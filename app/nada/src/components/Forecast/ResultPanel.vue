@@ -1,6 +1,6 @@
 <template>
     <div id="result-panel" v-bind:class="state">
-        <div id="closePanelButton" v-on:click="closePanel">back</div>
+        <div id="closePanelButton" v-on:click="closePanel"></div>
 
         <div id="loading">
             loading...
@@ -76,6 +76,7 @@
         z-index: 9;
         transition: 0.4s left ease-in-out, 0.4s box-shadow ease-in-out;
         background-color: white;
+
         &.loading {
             left: 0%;
             box-shadow: 0 0 15px 0 #7e7e7e;
@@ -88,6 +89,20 @@
             #loading {
                 display: none;
             }
+        }
+
+        #closePanelButton {
+            display: block;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background-image: url('/assets/back-arrow.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+            cursor: pointer;
         }
 
         #wrapper {

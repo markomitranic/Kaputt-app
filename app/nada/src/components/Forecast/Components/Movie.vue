@@ -34,7 +34,7 @@
         display: block;
         width: 100%;
         height: auto;
-        
+
         img {
             display: block;
             width: 100%;
