@@ -5,8 +5,7 @@
             @resultsReceived="showResultPanel"
         ></search-panel>
         <result-panel
-            v-bind:loading="loadingPanelVisible"
-            v-bind:visible="resultPanelVisible"
+            v-bind:state="resultsPanelState"
             v-bind:results="forecastResults"
             @closeForecastResults="closeResultPanel"
         ></result-panel>
@@ -25,28 +24,24 @@
         },
         data() {
             return {
-                loadingPanelVisible: false,
-                resultPanelVisible: false,
+                resultsPanelState: "",
                 forecastResults: null
             }
         },
         methods: {
             showResultPanel(data) {
-                this.loadingPanelVisible = false;
-                this.resultPanelVisible = true;
+                this.resultsPanelState = "result";
                 this.forecastResults = data;
             },
             showLoadingPanel() {
-                this.loadingPanelVisible = true;
-                this.resultPanelVisible = true;
+                this.resultsPanelState = "loading";
             },
             closeResultPanel() {
-                this.resultPanelVisible = false;
+                this.resultsPanelState = "";
                 setTimeout(() => {
                     this.forecastResults = null;
                 }, 400);
             }
-
         }
     }
 </script>
@@ -55,5 +50,7 @@
     #forecast-panel {
         height: 100%;
         width: 100%;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: auto;
     }
 </style>

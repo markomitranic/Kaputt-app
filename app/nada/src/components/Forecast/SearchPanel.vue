@@ -41,7 +41,7 @@
                     return;
                 }
 
-                this.$emit('w');
+                this.$emit('awaitingResults');
 
                 this.$http('/api/forecast', {
                     params: {
@@ -69,9 +69,11 @@
 
 <style scoped lang="scss">
     #search-panel {
-        height: 100%;
+        height: auto;
         width: 100%;
+        box-sizing: border-box;
         padding-top: 60px;
+        padding-bottom: 120px;
 
         & > h1 {
             text-align: left;
@@ -102,6 +104,7 @@
             bottom: 20px;
             left: 0;
             border-radius: 5px;
+            cursor: pointer;
         }
     }
 </style>
