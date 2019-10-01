@@ -51,7 +51,7 @@
                 this.$emit('closeForecastResults');
             },
             formatDate(date) {
-                return moment(date).format('DD MMM');
+                return moment(date, 'YYYY-MM-DD').format('DD MMM');
             },
             changeDay(index) {
                 this.selectedDay = index;
