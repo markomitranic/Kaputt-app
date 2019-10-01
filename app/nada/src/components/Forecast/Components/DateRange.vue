@@ -73,7 +73,7 @@
 
             },
             startDateChangeListener(date) {
-                this.startDate = moment(date).format('YYYY-MM-DD');
+                this.startDate = moment(date, 'YYYY-MM-DD').format('YYYY-MM-DD');
                 try {
                     this.validateDates();
                 } catch (e) {
@@ -81,7 +81,7 @@
                 }
             },
             endDateChangeListener(date) {
-                this.endDate = moment(date).format('YYYY-MM-DD');
+                this.endDate = moment(date, 'YYYY-MM-DD').format('YYYY-MM-DD');
                 try {
                     this.validateDates();
                 } catch (e) {
