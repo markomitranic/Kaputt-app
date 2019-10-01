@@ -12,7 +12,7 @@ services:
                 - SSL_CERTS_PATH=${SSL_CERTS_PATH}
         restart: always
         volumes:
-            - nada-build:/app/nada/dist
+            - nada:/app/nada:ro
         ports:
             - ${HTTPS_PORT}:443
         networks:
@@ -43,7 +43,9 @@ services:
             target: ${ENV}
         entrypoint: /app/entrypoint.sh
         volumes:
-            - nada-build:/app/nada/dist
+            - nada:/app/nada:delegated
+            - nada-node-modules:/app/nada/node_modules # Ignore
+            - /app/nada/.git # Ignore
         environment:
             NODE_ENV: ${ENV}
         networks:
@@ -54,4 +56,10 @@ networks:
         driver: bridge
 
 volumes:
-    nada-build:
+    nada:
+        driver: local
+        driver_opts:
+            type: none
+            device: ${PWD}/../app/nada
+            o: bind
+    nada-node-modules:
