@@ -11,6 +11,8 @@ services:
             args:
                 - SSL_CERTS_PATH=${SSL_CERTS_PATH}
         restart: always
+        volumes:
+            - nada-build:/app/nada/dist
         ports:
             - ${HTTPS_PORT}:443
         networks:
@@ -40,6 +42,8 @@ services:
             dockerfile: ./Docker/node/Dockerfile
             target: ${ENV}
         entrypoint: /app/entrypoint.sh
+        volumes:
+            - nada-build:/app/nada/dist
         environment:
             NODE_ENV: ${ENV}
         networks:
@@ -48,3 +52,6 @@ services:
 networks:
     kaputt:
         driver: bridge
+
+volumes:
+    nada-build:
