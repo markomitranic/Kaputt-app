@@ -6,11 +6,12 @@
             loading...
         </div>
         <div id="wrapper">
+            <movie :type="results[selectedDay]"></movie>
             <ul class="dates">
                 <li class="date-item" v-for="(item, index) in results" :key="index">
                     <div class="dayButton" v-on:click="changeDay(index)" v-bind:class="{ selected: index === selectedDay }">
                         <span class="date">{{formatDate(item.date)}}</span>
-                        <img :src="`/assets/weather-icons/${item.weatherConditions.icon}.png`" alt="" class="icon">
+                        <img :src="`/assets/weather-icons/${item.weatherConditions.icon}.svg`" alt="" class="icon">
                         <span class="temperature">{{item.weatherConditions.temperature}}</span>
                     </div>
                 </li>
@@ -34,10 +35,12 @@
 
 <script>
     import moment from 'moment';
+    import Movie from "./Components/Movie";
 
     export default {
         name: 'ResultPanel',
         components: {
+            Movie
         },
         props: {
             state: String,
