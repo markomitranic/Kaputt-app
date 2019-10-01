@@ -3,6 +3,7 @@
         <search-panel
             @awaitingResults="showLoadingPanel"
             @resultsReceived="showResultPanel"
+            @errorResults="errorResults"
         ></search-panel>
         <result-panel
             v-bind:state="resultsPanelState"
@@ -41,6 +42,9 @@
                 setTimeout(() => {
                     this.forecastResults = null;
                 }, 400);
+            },
+            errorResults() {
+                this.closeResultPanel();
             }
         }
     }

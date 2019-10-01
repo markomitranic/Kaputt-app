@@ -54,6 +54,7 @@
                 }).catch(error => {
                     /* eslint-disable no-console */
                     console.error(error);
+                    this.$emit('errorResults');
                 });
             },
             locationChangeListener(data) {
