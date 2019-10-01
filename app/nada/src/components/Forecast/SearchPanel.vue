@@ -51,6 +51,7 @@
                     }
                 }).then(response => {
                     this.$emit('resultsReceived', response.data);
+                    console.log(response.data)
                 }).catch(error => {
                     /* eslint-disable no-console */
                     console.error(error);
@@ -61,7 +62,7 @@
                 this.locationCoordinates = data;
             },
             dateRangeChangeListener(data) {
-                this.dateRange = data;
+                this.dateRange = data
             }
         }
     }
